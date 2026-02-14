@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp"
+    android:background="#F5F5F5">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/logo_blanco"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Compra Exitosa!"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/verde_tienda"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginVertical="20dp"/>
+
+            <TextView
+                android:id="@+id/tvFechaTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha: 14/02/2026"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvTotalTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Pagado: $0.00"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/btnVolverTienda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Volver a la Tienda"
+                android:backgroundTint="@color/verde_tienda"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="30dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
