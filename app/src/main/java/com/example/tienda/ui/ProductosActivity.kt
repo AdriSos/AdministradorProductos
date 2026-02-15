@@ -39,11 +39,21 @@ class ProductosActivity : AppCompatActivity() {
     private fun cargarDesdeAPI() {
         lifecycleScope.launch {
             try {
-                // Llama a https://api-tienda-9vfy.onrender.com/productos
+                // Un log para saber que la función sí se ejecutó
+                android.util.Log.d("TIENDA_DEBUG", "Iniciando petición a la API...")
+
                 val lista = RetrofitClient.instancia.obtenerProductos()
-                rvProductos.adapter = ProductoAdapter(lista)
+
+                if (lista.isEmpty()) {
+                    Toast.makeText(this@ProductosActivity, "La lista llegó vacía desde el servidor", Toast.LENGTH_SHORT).show()
+                } else {
+                    rvProductos.adapter = ProductoAdapter(lista)
+                    android.util.Log.d("TIENDA_DEBUG", "¡Éxito! Productos cargados: ${lista.size}")
+                }
             } catch (e: Exception) {
-                Toast.makeText(this@ProductosActivity, "Error de red: ${e.message}", Toast.LENGTH_LONG).show()
+                // Este log es VITAL. Nos dirá si es un Timeout, un error 500 o un error de red
+                android.util.Log.e("TIENDA_DEBUG", "ERROR DE RED DETECTADO: ${e.message}")
+                Toast.makeText(this@ProductosActivity, "Fallo al conectar: ${e.message}", Toast.LENGTH_LONG).show()
             }
         }
     }
